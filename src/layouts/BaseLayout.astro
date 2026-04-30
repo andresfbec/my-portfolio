@@ -1,0 +1,20 @@
+---
+import "../styles/global.css"; //estilos globales
+import "@fontsource-variable/onest"; //fuente a usar en la pagina 
+---
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Portafolio Andrés Becerra</title>
+    </head>
+    
+    <body
+        class="min-h-screen w-screen text-white p-4 box-border overflow-y-auto overflow-x-hidden
+                bg-[radial-gradient(circle_at_25%_25%,_rgba(50,40,70,0.65),_transparent_70%),radial-gradient(circle_at_75%_60%,_rgba(30,20,50,0.2),_transparent_80%),linear-gradient(160deg,_rgba(25,25,50,1),_rgba(60,40,90,0.95),_rgba(25,45,85,0.9),_rgba(15,30,60,0.87),_rgba(10,20,40,0.82))] 
+                [background-blend-mode:soft-light]" 
+        > <!-- fondo en gradientes y estilos para el alto y alto  -->
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"> <!-- este div limita el ancho maximo y se lo aplica a todo el slot q es todo lo que va a renderizar mi portfolio  -->
+            <slot /> <!-- este slot es donde se va a renderizar todo el contenido de mi portfolio -->
+        </div>
+    </body>
+</html>

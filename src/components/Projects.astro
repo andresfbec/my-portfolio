@@ -1,0 +1,34 @@
+--- 
+//seccion de proyectos 
+
+import ProjectCard from "./ProjectCard.astro" //importaicon del componente de tarjeta de proyecto 
+
+//array de proyectos para mapearlos y repetir la estructura ideal para el futuro si tengo mas proyectos
+const proyectos = [
+    {
+        titulo: "Proyecto SARA",
+        descripcion: "prueba ",
+        imagen: "/img/sara.png",
+        video: "/videos/sara-demo.mp4",
+        techs: ["django.svg", "css.svg", "javascript.svg", "react.svg"]
+    },
+]
+---
+
+<section id="Proyectos" class="pt-9">
+    <div class="flex flex-col items-center justify-center gap-8 text-left px-9">
+        <h2 class="text-5xl font-bold pb-5"> Mis Proyectos</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 gap-8">
+            {proyectos.map(proyecto => (
+                <ProjectCard
+                title={proyecto.titulo}
+                description={proyecto.descripcion}
+                image={proyecto.imagen}
+                video={proyecto.video}
+                techs={proyecto.techs}
+                />
+            ))}
+        </div>
+    </div>
+</section>
