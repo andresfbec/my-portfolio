@@ -22,11 +22,15 @@ cursor-pointer w-full"
     <img
         src={image}
         alt={`Imagen del proyecto ${title}`}
-        class="w-full h-60 object-cover transition-opacity duration-300 group-hover:opacity-0 z-0"
+        class="w-full h-60 object-cover transition-all duration-300 z-0 
+        blur-sm brightness-50
+        group-hover:blur-none group-hover:brightness-100  group-hover:opacity-0"
     />
 
     <!-- contenido como descripcion del proyecto -->
-    <div class="absolute bottom-0 left-0 w-full bg-black/60 text-white p-4 z-20">
+    <div class="absolute bottom-0 left-0 w-full text-white p-4 z-20
+    transition-opacity duration-300 opacity-100 group-hover:opacity-0
+    ">
             <h3 class="absolute text-xl font-bold bottom-9">
                 {title}
             </h3>
@@ -34,7 +38,7 @@ cursor-pointer w-full"
                 {description}
             </p>
         <div class="flex justify-end">
-            {techs.map((tech: string) => ( //le decimos el tipo de dato q va a recibir para que no tire advertencia
+            {techs.map((tech: string) => ( //le decimos el tipo de dato q va a recibir para evitar advertencia
                 <img
                     src={`/icons/${tech}`}
                     alt={tech.split('.')[0].toUpperCase()}

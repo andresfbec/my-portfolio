@@ -1,136 +1,104 @@
 ---
 // src/components/Hero.astro
 ---
-<!-- section principal -->
-<section class="pt-5 pb-9" id="Hero">
-    <div class="flex flex-col items-center justify-center gap-9 text-left px-9">
-        <!-- Imagen -->
-        <img 
-            src="/foto_perfil.png" 
-            alt="Foto de perfil de Andrés Becerra" 
-            class="w-48 h-48 rounded-full border-4 border-white 
-                    shadow-lg object-cover 
-                    sm:w-60 sm:h-60 
-                    md:w-72 md:h-72 
-                    lg:w-64 lg:h-64 
-                    xl:w-72 xl:h-72"
-            loading="lazy" />
-
-        <!-- Texto y redes -->
-        <div class="space-y-4 text-center">
-            <h1 class="xl:text-5xl font-bold pb-5 text-center md:text-[4rem] lg:text-[3rem]">¡Hola! Soy Andrés Becerra</h1>
-            <p class="leading-relaxed text-gray-300 max-w-3xl text-left pb-3 xl:text-[1.58rem] lg:text-[2.5rem] md:text-[2.5rem]">
-                Desarrollador frontend especializado en construir interfaces modernas, 
-                funcionales y estéticamente balanceadas, con especial enfoque 
-                en la experiencia del usuario y claridad visual.
-            </p>
-            <!-- iconos de redes sociales y descarga de cv  -->
-            <div class="flex gap-4 justify-start">
-                <!-- button GitHub -->
-                <a 
-                href="https://github.com/CodeAndrew17"
-                title="GitHub de Andrés Becerra" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                aria-label="Ir a mi GitHub"
-                class="flex items-center gap-2 
-                    px-6 py-3 text-base 
-                    rounded-lg bg-zinc-700 text-white 
-                    hover:bg-zinc-600 hover:scale-105 
-                    transition duration-200 shadow
-
-                    sm:px-7 sm:py-4 sm:text-xl
-                    xl:px-4 xl:py-2 xl:text-base"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                        class="w-7 h-7 sm:w-8 sm:h-8 xl:w-6 xl:h-6"
-                    >
-                        <path d="M12 .5C5.73.5.5 5.74.5 12.02c0 5.1 3.29 9.42 7.86 10.96.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2.01-3.2.69-3.88-1.54-3.88-1.54-.53-1.36-1.3-1.72-1.3-1.72-1.06-.72.08-.71.08-.71 1.18.08 1.8 1.21 1.8 1.21 1.04 1.79 2.73 1.28 3.4.98.11-.76.41-1.28.75-1.57-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.46-2.3 1.2-3.12-.12-.3-.52-1.52.11-3.17 0 0 .97-.31 3.18 1.19a11.03 11.03 0 0 1 2.9-.39c.99.01 1.99.13 2.91.39 2.2-1.5 3.17-1.19 3.17-1.19.64 1.65.24 2.87.12 3.17.75.82 1.2 1.86 1.2 3.12 0 4.43-2.7 5.4-5.27 5.68.42.36.8 1.1.8 2.22 0 1.6-.02 2.89-.02 3.29 0 .31.21.67.8.56A10.51 10.51 0 0 0 23.5 12c0-6.28-5.23-11.5-11.5-11.5z"/>
-                    </svg>
-                    <span class="hidden sm:inline">GitHub</span>
-                </a>
-                <!-- button LinkedIn -->
-                <a 
-                href="https://www.linkedin.com/in/andrés-becerra-malaver-0b6561332" 
-                title="LinkedIn de Andrés Becerra"
-                target="_blank" 
-                rel="noopener noreferrer"
-                aria-label="Ir a mi LinkedIn"
-                class="flex items-center gap-2 
-                        px-6 py-3 text-base 
-                        rounded-lg bg-blue-600 text-white 
-                        hover:bg-blue-500 hover:scale-105 
-                        transition duration-200 shadow
-
-                        sm:px-7 sm:py-4 sm:text-xl
-                        xl:px-4 xl:py-2 xl:text-base"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                        class="w-7 h-7 sm:w-8 sm:h-8 xl:w-6 xl:h-6"
-                    >
-                        <path d="M20.447 20.452H17.2V15.6c0-1.157-.022-2.646-1.616-2.646-1.616 0-1.864 1.262-1.864 2.566v4.933H10.475V9h3.122v1.561h.044c.434-.822 1.493-1.686 3.07-1.686 3.287 0 3.894 2.164 3.894 4.977v6.6zM5.337 7.433a1.81 1.81 0 1 1 0-3.621 1.81 1.81 0 0 1 0 3.621zM6.884 20.452H3.79V9h3.094v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.723v20.554C0 23.226.792 24 1.771 24h20.451C23.2 24 24 23.226 24 22.277V1.723C24 .774 23.2 0 22.225 0z"/>
-                    </svg>
-                    <span class="hidden sm:inline">LinkedIn</span>
-                </a>
-
-                <!-- button Gmail -->
-                <a 
-                href="mailto:becerrafelipe8b@gmail.com"
-                title="Enviar correo a Andrés Becerra"
-                aria-label="Enviar correo a Andrés Becerra"
-                class="flex items-center gap-2 
-                    px-6 py-3 text-base 
-                    rounded-lg bg-red-600 text-white 
-                    hover:bg-red-500 hover:scale-105 
-                    transition duration-200 shadow
-
-                    sm:px-7 sm:py-4 sm:text-xl
-                    xl:px-4 xl:py-2 xl:text-base"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        class="w-7 h-7 sm:w-8 sm:h-8 xl:w-6 xl:h-6"
-                        fill="currentColor"
-                    >
-                        <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2v.01L12 13 4 6.01V6h16zM4 20v-9.99l8 6.99 8-6.99V20H4z"/>
-                    </svg>
-                    <span class="hidden sm:inline">Gmail</span>
-                </a>
-                <!-- button descargar CV -->
-                <a
-                href="/CV_Andres_Becerra.pdf" 
-                download 
-                class="flex items-center gap-2 
-                        px-6 py-3 text-base 
-                        rounded-lg bg-cyan-600 text-white 
-                    hover:bg-cyan-500 hover:scale-105 
-                        transition duration-200 shadow 
-                        ml-auto mr-8
-
-                        sm:px-7 sm:py-4 sm:text-xl
-                        xl:px-4 xl:py-2 xl:text-base"
-                >
-                    <svg
-                        class="w-7 h-7 sm:w-8 sm:h-8 xl:w-6 xl:h-6"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                    >
-                        <path stroke-linecap="round" 
-                            stroke-linejoin="round" 
-                            d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/>
-                    </svg>
-                    <span>Descargar CV</span>
-                </a>
-            </div>
-        </div>
+<section class="pt-32 pb-12" id="hero">
+  <div class="flex flex-col md:flex-row items-start md:items-center gap-8 px-4 md:px-0">
+    
+    <!-- Foto de Perfil Izquierda -->
+    <div class="relative min-w-[120px] md:min-w-[150px]">
+      <img 
+        src="../../public/avatar-portfolio.jpg" 
+        alt="." 
+        class="w-28 h-28 md:w-36 md:h-36 rounded-full object-cover border border-white/10 shadow-2xl"
+        loading="eager" 
+      />
     </div>
+
+    <!-- Títulos Principales Derecha -->
+    <div class="space-y-2">
+      <h1 class="text-3xl md:text-5xl font-medium tracking-tight text-white">
+        Desarrollador de Software Junior
+      </h1>
+      <p class="text-lg md:text-xl text-zinc-400 font-light">
+        ¡Hola! Mi nombre es Andrés Felipe Becerra.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- Texto de Introducción -->
+  <div class="mt-8 max-w-3xl px-4 md:px-0">
+    <p class="leading-relaxed text-zinc-300 text-base md:text-lg font-light text-left">
+      Desarrollador de software junior con enfoque en frontend, especializado en construir interfaces modernas y centradas en el usuario. 
+      Manejo React, Django, Flutter y APIs REST, con bases en SQL y Linux. 
+      Próximo a iniciar Ingeniería de Sistemas, buscando consolidarme como desarrollador full-stack.
+    </p>
+    
+    <!-- Botón Único de Acción: Descargar CV -->
+    <div class="mt-8 flex flex-wrap items-center justify-start gap-3">
+        <div class="group relative p-[1px] inline-flex items-center justify-start rounded-xl overflow-hidden bg-white/10 transition-all duration-300">
+            <div class="absolute inset-[-1000%] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,transparent_70%,#B5B1B1_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-border-spin"></div>
+
+            <a
+                href="/CV_Andres_Becerra.pdf"
+                download
+                class="relative flex items-center gap-2 px-5 py-2.5 text-sm rounded-[11px] bg-black/80 backdrop-blur-md text-white w-full h-full border border-white/5 group-hover:border-transparent transition-colors duration-300"
+            >
+                <svg
+                    class="w-4 h-4 text-zinc-400 group-hover:text-white transition-colors duration-300"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/>
+                </svg>
+                <span class="font-medium tracking-wide">Descargar CV</span>
+            </a>
+        </div>
+
+        <a
+            href="https://www.linkedin.com/in/andrés-becerra-malaver-0b6561332"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            class="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-zinc-300 transition hover:-translate-y-0.5 hover:bg-white/10 hover:text-white"
+        >
+            <img src="/icons/linkedin.svg" alt="LinkedIn" class="h-5 w-5 object-contain brightness-0 invert" />
+        </a>
+
+        <a
+            href="https://github.com/andresfbec"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            class="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-zinc-300 transition hover:-translate-y-0.5 hover:bg-white/10 hover:text-white"
+        >
+            <img src="/icons/github.svg" alt="GitHub" class="h-5 w-5 object-contain brightness-0 invert" />
+        </a>
+
+        <a
+            href="mailto:becerrafelipe8b@gmail.com"
+            aria-label="Gmail"
+            class="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-zinc-300 transition hover:-translate-y-0.5 hover:bg-white/10 hover:text-white"
+        >
+            <img src="/icons/gmail.svg" alt="Gmail" class="h-5 w-5 object-contain brightness-0 invert" />
+        </a>
+
+        <style>
+            @keyframes border-spin {
+                from {
+                    transform: rotate(0deg);
+                }
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+
+            .animate-border-spin {
+                animation: border-spin 3s linear infinite;
+            }
+        </style>
+    </div>
+  </div>
 </section>
