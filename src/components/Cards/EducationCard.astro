@@ -1,0 +1,33 @@
+---
+const {title, description, from, to, institution} = Astro.props;
+---
+
+<div   class="
+    project-card
+    group
+    relative
+    flex
+    flex-col
+    md:flex-col
+    items-stretch
+    gap-4
+    rounded-lg
+    p-4
+    transition-all
+    duration-300
+    bg-transparent
+    hover:bg-white/[0.02]
+    hover:-translate-y-1
+    hover:shadow-[0_20px_45px_rgba(0,0,0,0.35),0_0_35px_rgba(255,255,255,0.08)]
+    w-full
+    ">
+    <div class="flex justify-between">
+        <p class="text-xl font-semibold text-white">{title}</p>
+        <p class="text-sm text-slate-300">{from} - {to}</p>
+
+    </div>
+    <p class="text-sm text-slate-300">{description}</p>
+    <p class="mt-2 text-base text-zinc-400">
+        {institution}
+    </p>
+</div>

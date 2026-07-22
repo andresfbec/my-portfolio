@@ -1,22 +1,33 @@
 --- 
 //seccion de proyectos 
 
-import ProjectCard from "./ProjectCard.astro" //importaicon del componente de tarjeta de proyecto 
+import ProjectCard from "./Cards/ProjectCard.astro" //importaicon del componente de tarjeta de proyecto 
 
 //array de proyectos para mapearlos y repetir la estructura ideal para el futuro si tengo mas proyectos
 const proyectos = [
     {
         titulo: "Proyecto SARA",
-        descripcion: "prueba ",
-        imagen: "/img/sara.png",
-        video: "/videos/sara-demo.mp4",
-        techs: ["django.svg", "css.svg", "javascript.svg", "react.svg"]
+        descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+        imagen: "/img/sara.webp",
+        video: "/videos/sara-demo-2.mp4",
+        videoId: "HuX-Kjl8cOY",
+        techs: ["react", "axios", "javascript", "tailwindcss"],
+        githubUrl: "https://github.com/andresfbec/tkd-score-app"
     },
+    {
+        titulo: "Proyecto TKD Score",
+        descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+        imagen: "/img/tkd-score.webp",
+        video: "/videos/tkd-score-demo.mp4",
+        videoId: "elfjGtqYDHc",
+        techs: ["dart", "flutter", "drift", "sqlite"],
+        githubUrl: "https://github.com/andresfbec/tkd-score-app"
+    }
 ]
 ---
 
-<section id="proyectos" class="py-12">
-    <div class="flex flex-col items-start justify-start gap-8">
+<section id="projects" class="py-12">
+    <div class="flex flex-col items-stretch justify-start gap-8">
         <h2 class="text-2xl md:text-3xl font-medium tracking-tight text-white"> 
             Proyectos
         </h2>
@@ -27,8 +38,9 @@ const proyectos = [
                 title={proyecto.titulo}
                 description={proyecto.descripcion}
                 image={proyecto.imagen}
-                video={proyecto.video}
+                videoId={proyecto.videoId}
                 techs={proyecto.techs}
+                githubUrl={proyecto.githubUrl}
                 />
             ))}
         </div>

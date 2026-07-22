@@ -1,0 +1,168 @@
+---
+const { title, description, image, videoId, techs, githubUrl } = Astro.props;
+// videoId = solo el ID de YouTube, ej: "ABC123XYZ" (no la url completa)
+---
+
+<div
+    class="
+    project-card
+    group
+    relative
+    flex
+    flex-col
+    md:flex-row
+    items-stretch
+    gap-4
+    rounded-lg
+    p-4
+    transition-all
+    duration-300
+    bg-transparent
+    hover:bg-white/[0.02]
+    hover:-translate-y-1
+    hover:shadow-[0_20px_45px_rgba(0,0,0,0.35),0_0_35px_rgba(255,255,255,0.08)]
+    w-full
+    "
+    data-video-id={videoId}
+>
+    <div class="project-preview relative w-full md:w-72 h-44 md:h-48 shrink-0 
+    overflow-hidden rounded-lg border border-white/10 bg-slate-950/70">
+
+        <div class="absolute inset-0 bg-black/30 z-10 transition-opacity duration-300 
+        group-hover:opacity-0 play-overlay"></div>
+
+        <div class="absolute inset-0 flex items-center justify-center z-20 opacity-0 group-hover:opacity-100 
+        transition-opacity duration-300 play-button">
+            <svg class="w-14 h-14 text-white drop-shadow-lg" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+            </svg>
+        </div>
+
+        <img
+            src={image}
+            alt={`Imagen del proyecto ${title}`}
+            class="
+            project-thumb
+            h-full
+            w-full
+            object-cover
+            transition-all
+            duration-300
+            grayscale
+            blur-[1px]
+            group-hover:blur-none
+            group-hover:grayscale-0"
+        />
+
+        <!-- <div class="project-info absolute inset-x-0 bottom-0 z-20 p-4 text-white transition-opacity duration-300 opacity-100 group-hover:opacity-0">
+            <h3 class="text-lg font-semibold">
+                {title}
+            </h3>
+            <p class="mt-1 text-sm text-white/80">
+                {description}
+            </p>
+        </div> -->
+    </div>
+
+    <div class="flex flex-1 flex-col justify-center px-1 py-2 text-left md:pl-2">
+        <h3 class="text-xl font-semibold text-white">
+            {title}
+        </h3>
+        <p class="mt-3 text-sm leading-relaxed text-slate-300">
+            {description}
+        </p>
+
+        <div class="mt-4 flex items-center justify-between">
+            <!-- badges -->
+            <div class="flex flex-wrap gap-2 text-sm leading-relaxed text-slate-400">
+                {techs.map((tech: string) => (
+                    <span
+                        class="
+                        rounded-full
+                        border
+                        border-white/10
+                        bg-white/5
+                        px-3
+                        py-1
+                        text-xs
+                        font-medium
+                        text-zinc-300"
+                    >
+                    {tech}
+                </span>
+                ))}
+            </div>
+
+        <!-- external link -->
+         <a
+            href={githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="
+            shrink-0
+            text-zinc-500
+            hover:text-white
+            transition-colors
+            cursor-pointer
+            duration-300"
+            aria-label="Ver repositorio en GitHub"
+        >
+            <svg
+                class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M7 17L17 7M17 7H9M17 7v8"
+                />
+            </svg>
+        </a>
+
+        </div>
+
+    </div>
+</div>
+
+<script>
+    document.querySelectorAll('.project-card').forEach((card) => {
+        let player: HTMLIFrameElement | null = null;
+        const preview = card.querySelector('.project-preview'); // unicamente la imagen del proyecto
+
+        preview?.addEventListener('click', () => {
+            const videoId = card.getAttribute('data-video-id');
+            if (!videoId || !preview || preview.querySelector('iframe')) return;
+
+            const iframe = document.createElement('iframe');
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=0&mute=1&enablejsapi=1`;
+            iframe.className = 'absolute inset-0 w-full h-full z-30';
+            iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
+            iframe.allowFullscreen = true;
+            iframe.frameBorder = '0';
+
+            preview.appendChild(iframe);
+            player = iframe;
+
+            preview.querySelector('.play-overlay')?.classList.add('!opacity-0');
+            preview.querySelector('.play-button')?.classList.add('!opacity-0');
+            preview.querySelector('.project-info')?.classList.add('!opacity-0');
+        });
+
+        card.addEventListener('mouseleave', () => {
+            player?.contentWindow?.postMessage(
+                JSON.stringify({ event: 'command', func: 'pauseVideo', args: [] }),
+                '*'
+            );
+        });
+
+        card.addEventListener('mouseenter', () => {
+            player?.contentWindow?.postMessage(
+                JSON.stringify({ event: 'command', func: 'playVideo', args: [] }),
+                '*'
+            );
+        });
+    });
+</script>
